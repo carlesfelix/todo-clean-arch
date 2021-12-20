@@ -18,6 +18,9 @@ export default function TaskPage() {
     ]);
     setNewTaskTitle('');
   }
+  function deleteHandler(task: Task): void {
+    setTasks(old => old.filter(({ id }) => task.id !== id));
+  }
   return (
     <div className="TaskPage">
       <form className="TaskPage__form" onSubmit={submitHandler}>
@@ -31,7 +34,10 @@ export default function TaskPage() {
         </button>
       </form>
       <div className="TaskPage__tasks">
-        <TaskList tasks={tasks} />
+        <TaskList
+          tasks={tasks}
+          onDelete={deleteHandler}
+        />
       </div>
     </div>
   );

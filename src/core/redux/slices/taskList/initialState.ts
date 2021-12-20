@@ -1,6 +1,6 @@
-import { TopAgentState } from './types';
+import { TaskListState } from './types';
 
-const initialState: TopAgentState = {
+const initialState: TaskListState = {
   data: [],
   error: false,
   inProgress: false

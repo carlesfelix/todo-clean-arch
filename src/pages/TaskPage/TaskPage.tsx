@@ -9,12 +9,12 @@ import "./TaskPage.css";
 export default function TaskPage() {
   const dispatch = useDispatch();
   const {
-    setTaskForm, setTasks,
-    taskForm, tasks
+    setTaskForm, taskForm, tasks,
+    totalTasks
   } = useTaskPage({});
   const actions = TaskPageActions({
     dispatch, setTaskForm,
-    setTasks, taskForm
+    taskForm
   });
   function inputTextChangeHandler(value: string): void {
     actions.taskForm.title.onChange(value);
@@ -37,10 +37,11 @@ export default function TaskPage() {
         <button>
           Create task
         </button>
+        Total tasks: {totalTasks}
       </form>
       <div className="TaskPage__tasks">
         <TaskList
-          tasks={tasks}
+          tasks={tasks.data}
           onDelete={deleteHandler}
         />
       </div>

@@ -1,9 +1,9 @@
 import { combineReducers } from '../utils/redux-toolkit';
-import topAgentSlice from './slices/topAgent/topAgentSlice';
+import taskListSlice from './slices/taskList';
 
 // Place here your reducers
 const reducers = combineReducers({
-  topAgent: topAgentSlice.reducer
+  taskList: taskListSlice.reducer
 });
 
 export type ReducersState = ReturnType<typeof reducers>;

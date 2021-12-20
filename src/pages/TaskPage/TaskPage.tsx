@@ -2,7 +2,7 @@ import { FormEvent } from "react";
 import { useDispatch } from "../../core/utils/react-redux";
 import InputText from "../../components/InputText";
 import TaskList from "../../components/TaskList";
-import { TaskPageActions, useTaskPage } from "../../core/interactors/PerformancePage";
+import { TaskPageActions, useTaskPage } from "../../core/interactors/TaskPage";
 import Task from "../../core/types/Task";
 import "./TaskPage.css";
 

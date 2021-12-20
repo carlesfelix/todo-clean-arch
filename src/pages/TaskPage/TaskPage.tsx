@@ -1,32 +1,38 @@
-import { FormEvent, useState } from "react";
+import { FormEvent } from "react";
+import { useDispatch } from "../../core/utils/react-redux";
 import InputText from "../../components/InputText";
 import TaskList from "../../components/TaskList";
+import { TaskPageActions, useTaskPage } from "../../core/interactors/PerformancePage";
 import Task from "../../core/types/Task";
 import "./TaskPage.css";
 
 export default function TaskPage() {
-  const [ newTaskTitle, setNewTaskTitle ] = useState<string>('');
-  const [ tasks, setTasks ] = useState<Task[]>([]);
+  const dispatch = useDispatch();
+  const {
+    setTaskForm, setTasks,
+    taskForm, tasks
+  } = useTaskPage({});
+  const actions = TaskPageActions({
+    dispatch, setTaskForm,
+    setTasks, taskForm,
+    tasks
+  });
   function inputTextChangeHandler(value: string): void {
-    setNewTaskTitle(value);
+    actions.taskForm.title.onChange(value);
   }
   function submitHandler(event: FormEvent<HTMLFormElement>): void {
     event.preventDefault();
-    setTasks(old => [
-      { title: newTaskTitle, id: Date.now() },
-      ...old
-    ]);
-    setNewTaskTitle('');
+    actions.addTask();
   }
   function deleteHandler(task: Task): void {
-    setTasks(old => old.filter(({ id }) => task.id !== id));
+    actions.deleteTask(task);
   }
   return (
     <div className="TaskPage">
       <form className="TaskPage__form" onSubmit={submitHandler}>
         <InputText
           onChange={inputTextChangeHandler}
-          value={newTaskTitle}
+          value={taskForm.title}
           placeholder="Type a new task"
         />
         <button>

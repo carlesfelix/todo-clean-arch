@@ -1,8 +1,8 @@
-import PerformancePageActions from './PerformancePage.actions';
-import usePerformancePage from './usePerformancePage';
+import TaskPageActions from './TaskPage.actions';
+import useTaskPage from './useTaskPage';
 
 export * from './types';
 export {
-  PerformancePageActions,
-  usePerformancePage
+  TaskPageActions,
+  useTaskPage
 };

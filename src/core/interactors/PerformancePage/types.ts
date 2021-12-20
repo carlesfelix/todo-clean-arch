@@ -1,17 +1,31 @@
-import Agent from '../../types/Agent';
-import AsyncState from '../../types/AsyncState';
+import { Dispatch, SetStateAction } from 'react';
+import { InputTextProps } from '../../../components/InputText';
 import PropsWithDispatch from '../../types/PropsWithDispatch';
+import Task from '../../types/Task';
 
-export type PerformancePageInteractorProps = PropsWithDispatch<{
-  otherProp: string
+export type TaskPageActionsProps = PropsWithDispatch<{
+  setTaskForm: Dispatch<SetStateAction<TaskForm>>;
+  setTasks: Dispatch<SetStateAction<Task[]>>;
+  taskForm: TaskForm;
+  tasks: Task[];
 }>;
 
-export type PerformancePageInteractorReturn = {
-  selectChartPeriod: (period: string) => void;
+export type TaskPageActionReturn = {
+  addTask: () => void;
+  deleteTask: (task: Task) => void;
+  taskForm: {
+    title: InputTextProps
+  };
+  tasks: Task[];
 }
 
-export type UsePerformancePageProps = {};
+export type TaskForm = { title: string };
 
-export type UsePerformancePageReturn = {
-  topAgents: AsyncState<Agent[]>
+export type UseTaskPageProps = {};
+
+export type UseTaskPageReturn = {
+  taskForm: TaskForm;
+  tasks: Task[],
+  setTaskForm: Dispatch<SetStateAction<TaskForm>>;
+  setTasks: Dispatch<SetStateAction<Task[]>>;
 };

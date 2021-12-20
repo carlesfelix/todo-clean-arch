@@ -14,8 +14,7 @@ export default function TaskPage() {
   } = useTaskPage({});
   const actions = TaskPageActions({
     dispatch, setTaskForm,
-    setTasks, taskForm,
-    tasks
+    setTasks, taskForm
   });
   function inputTextChangeHandler(value: string): void {
     actions.taskForm.title.onChange(value);

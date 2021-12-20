@@ -7,7 +7,6 @@ export type TaskPageActionsProps = PropsWithDispatch<{
   setTaskForm: Dispatch<SetStateAction<TaskForm>>;
   setTasks: Dispatch<SetStateAction<Task[]>>;
   taskForm: TaskForm;
-  tasks: Task[];
 }>;
 
 export type TaskPageActionReturn = {
@@ -16,7 +15,6 @@ export type TaskPageActionReturn = {
   taskForm: {
     title: InputTextProps
   };
-  tasks: Task[];
 }
 
 export type TaskForm = { title: string };

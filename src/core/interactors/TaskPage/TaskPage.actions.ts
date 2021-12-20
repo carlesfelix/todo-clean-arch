@@ -3,7 +3,7 @@ import { TaskPageActionReturn, TaskPageActionsProps } from './types';
 export default function TaskPageActions(props: TaskPageActionsProps): TaskPageActionReturn {
   const {
     dispatch, setTaskForm, setTasks,
-    taskForm, tasks
+    taskForm
   } = props;
   return {
     addTask: () => {
@@ -29,7 +29,6 @@ export default function TaskPageActions(props: TaskPageActionsProps): TaskPageAc
         },
         value: taskForm.title
       }
-    },
-    tasks
+    }
   };
 }

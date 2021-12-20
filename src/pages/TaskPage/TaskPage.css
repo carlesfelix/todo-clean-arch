@@ -1,0 +1,16 @@
+div.TaskPage {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+div.TaskPage form.TaskPage__form,
+div.TaskPage div.TaskPage__tasks {
+  padding: 1rem;
+}
+
+div.TaskPage div.TaskPage__tasks {
+  flex-grow: 1;
+  background-color: lightblue;
+}
+
